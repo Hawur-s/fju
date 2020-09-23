@@ -1,21 +1,33 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+
 import {Alert, Button} from 'react-native';
-export default function Click() {
-  let count = 0;
+
+
+
+export default function Click(props) {
+
+  const [count, setCount] = useState(props.count);
+
+
+
   let countString = "count:"+count;
-  function handleClick() {
+
+
+
+  function showCount(){
 
     Alert.alert("count:"+count);
 
-    count++;
-
   }
+
+  useEffect(showCount);
 
   return (
 
-    <Button title={countString} onPress={handleClick}/>
+    <Button title={countString} onPress={()=>setCount(count+1)}/>
 
-  
+   
+
   );
 
 }
