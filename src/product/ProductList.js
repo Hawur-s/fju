@@ -18,6 +18,8 @@ export default function Click(props) {
 
     Alert.alert("count:"+count);
 
+    props.update(count);
+
   }
 
   useEffect(showCount);
